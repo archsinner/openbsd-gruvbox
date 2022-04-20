@@ -1,0 +1,22 @@
+#!/usr/bin/env ksh
+
+videoName=$(date +"%m_%d_%M_%Y")
+audioName=$(date +"%m_%d_%M_%Y")
+
+# Uncomment this to open up your webcam (Change the resolution as needed)
+# If this command is not working make sure the resolution is something your
+# webcam is capable of, and try 'doas chown <username> /dev/video0' as your
+# user might not own the camera.
+ffplay -f v4l2 -input_format mjpeg -video_size 1920x1080 -i /dev/video0 & 
+
+# This will drop a .wav file recording the default microphone/input. If your
+# microphone is USB and not set to become the default (NOT default) then snd/1
+# should work for you. MAKE SURE TO CHANGE DIRECTORY AS NEEDED!
+aucat -f snd/0 -o /home/tyler/Videos/$audioName.wav &
+
+ffmpeg -y \
+	-f x11grab -thread_queue_size 32 \
+	-s 2560x1440 -r 30 -i +0,0 \
+    	-codec:v libx264rgb -crf 0 -preset ultrafast \
+	/home/tyler/$videoName.mkv # CHANGE DIRECTORY AS NEEDED!
+

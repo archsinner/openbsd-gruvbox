@@ -1,0 +1,101 @@
+! ===== fonts
+Xft.autohint  : 0
+Xft.lcdfilter : lcddefault
+Xft.hintstyle : hintslight
+Xft.hinting   : 1
+Xft.antialias : 1
+Xft.rgba      : rgb
+! fixed is the one true font - use iso10646 for unicode characters
+*font         : -misc-fixed-medium-r-semicondensed-*-13-*-*-*-*-*-iso10646-1
+
+! ===== xidle
+! drag pointer to lower left corner to lock screen
+XIdle*position : sw
+! and leave it there for one second.
+XIdle*delay    : 1
+! also lock screen after 5 minutes idle
+XIdle*timeout  : 300
+
+! ===== xlock
+! actually turn the backlight off
+XLock.dpmsoff     : 1
+! plain white-on-black lock screen
+XLock.description : off
+XLock.echokeys    : off
+XLock.info        :
+XLock.background  : black
+XLock.foreground  : white
+XLock.mode        : blank
+XLock.username    : username: 
+XLock.password    : password: 
+XLock.font        : -misc-fixed-medium-r-normal-*-15-*-*-*-*-*-iso10646-1
+XLock.planfont    : -misc-fixed-medium-r-normal-*-13-*-*-*-*-*-iso10646-1
+
+! ===== xclock
+! digital clock in lower right-hand corner
+#XClock*analog      : false
+#XClock*twentyfour  : true
+#XClock*padding     : 0
+#XClock*geometry    : -2-2
+#XClock*render      : false
+#XClock*font        : -misc-fixed-bold-r-normal-*-13-*-*-*-*-*-iso10646-1
+#XClock*height      : 12
+#XClock*background  : dimgray
+#XClock*foreground  : white
+#XClock*borderWidth : 0
+
+! ===== xterm
+! gruvbox theme I worked forever on
+XTerm*background     : #282828
+XTerm*foreground     : #ebdbb2
+XTerm*cursorColor    : #aaaaaa
+XTerm*colorUL        : #366060
+XTerm*underlineColor : #dfaf8f
+XTerm*color0         : #282828
+XTerm*color1         : #cc241d
+XTerm*color2         : #98971a
+XTerm*color3         : #d79921
+XTerm*color4         : #458588
+XTerm*color5         : #b16286
+XTerm*color6         : #689d6a
+XTerm*color7         : #a89984
+XTerm*color8         : #928374
+XTerm*color9         : #fb4934
+XTerm*color10        : #b8bb26
+XTerm*color11        : #fabd2f
+XTerm*color12        : #83a598
+XTerm*color13        : #d3869b
+XTerm*color14        : #8ec07c
+XTerm*color15        : #ebdbb2
+
+! remove the additional black border
+XTerm*borderWidth            : 0
+XTerm*internalBorder         : 2
+! set TERM env variable to use 256 colors
+XTerm*termName               : xterm-256color
+! make alt key work normally
+XTerm*vt100.metaSendsEscape  : true
+! save ~10,000 lines of scrollback
+XTerm*v100.saveLines         : 10240
+! hide scrollbar
+XTerm*vt100.scrollBar        : false
+! terminal bell tells the window manager to raise urgent flag
+XTerm*vt100.bellIsUrgent     : true
+! no bold fonts - just use brighter colors
+XTerm*allowBoldFonts         : false
+! pressing a key automatically scrolls to the bottom
+XTerm*scrollKey              : true
+! don't allow terminal to go fullscreen
+XTerm*fullscreen             : never
+! clicking a line selects only from the current word forward
+XTerm*cutToBeginningOfLine   : false
+! and don't include a trailing newline in the selection!
+XTerm*cutNewline             : false
+! some black magic to change what characters XTerm considers "word delimiters"
+XTerm*charClass              : 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+! select word on two clicks
+XTerm*on2Clicks              : word
+! select whole line on three clicks
+XTerm*on3Clicks              : line
+! shift + left click to open selection in web browser
+XTerm*VT100*Translations     : #override Shift : exec-formatted("chrome --enable-unveil '%t'", PRIMARY)

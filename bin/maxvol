@@ -1,0 +1,5 @@
+#!/usr/bin/env ksh
+
+sndioctl input.level=1 &
+sndioctl output.level=1
+

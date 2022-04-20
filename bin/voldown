@@ -1,0 +1,7 @@
+#!/usr/bin/env ksh
+
+### FOR OpenBSD ###
+sndioctl output.level=-0.1 &
+sleep 0.5 & # Wait for half a second
+notify-send -t 925 "$(sndioctl | grep output.level)"
+
