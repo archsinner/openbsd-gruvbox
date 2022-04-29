@@ -1,0 +1,12 @@
+{
+  "diagnostic.virtualText": true,
+  "diagnostic.joinMessageLines": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.messageTarget": "float",
+  "diagnostic.level": "information",
+  "suggest.autoTrigger": "none",
+  "signature.enable": true,
+  "coc.preferences.snippets.enable": true,
+  "rust-analyzer.diagnostics.enable": true,
+  "rust-analyzer.serverPath": "~/.cargo/bin/rust-analyzer"
+}
